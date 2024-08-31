@@ -1,5 +1,5 @@
 plugins {
-    id("org.sonarqube") version "3.5.0.2730"
+    id("org.sonarqube") version "5.1.0.4882"
     id("jacoco")
     id("org.springframework.boot") version "3.3.2"
     id("io.spring.dependency-management") version "1.1.6"
@@ -13,7 +13,9 @@ java {
 sonarqube {
     properties {
         property("sonar.projectName", "${project.name}")
-        property("sonar.host.url", "http://localhost:9000")
+        property("sonar.host.url", "http://localhost:8000/sonar")
+	property("sonar.login", "admin")
+        property("sonar.password", "admin1")
         property("sonar.projectKey", "${rootProject.name}-${project.name}")
         property("sonar.projectVersion", "${project.version}")
         property("sonar.junit.reportPaths", "${projectDir}/build/test-results/test")
